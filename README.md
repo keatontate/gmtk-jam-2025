@@ -6,6 +6,7 @@
 - three
 
 ### Developer Resources
+#### Websites
 - https://www.lexaloffle.com/bbs/?pid=64118
 - https://www.reddit.com/r/pico8/comments/10a1hz6/the_ultimate_link_guide_for_pico8/
 - https://github.com/pico-8/awesome-PICO-8
@@ -13,6 +14,9 @@
 - https://github.com/dansanderson/picotool
 - https://nerdyteachers.com/PICO-8/Guide/
 - https://www.lexaloffle.com/dl/docs/pico-8_manual.html#_INCLUDE
+
+#### Videos
+- https://www.youtube.com/watch?v=srPKBhzgZhc
   
 [PICO-8 Cheat Sheet (4k - Dark).pdf](https://github.com/user-attachments/files/21449166/PICO-8.Cheat.Sheet.4k.-.Dark.pdf)
 
