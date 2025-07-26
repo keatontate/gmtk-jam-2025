@@ -1,0 +1,16 @@
+# Created by https://www.toptal.com/developers/gitignore/api/pico8
+# Edit at https://www.toptal.com/developers/gitignore?templates=pico8
+
+### pico8 ###
+# exported file types
+*.p8.png
+*.png
+*.wav
+*.js
+*.html
+*.bin
+
+# demos folder
+demos/
+
+# End of https://www.toptal.com/developers/gitignore/api/pico8
