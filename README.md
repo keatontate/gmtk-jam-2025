@@ -12,6 +12,7 @@
 - https://github.com/seleb/PICO-8-Token-Optimizations
 - https://github.com/dansanderson/picotool
 - https://nerdyteachers.com/PICO-8/Guide/
+- https://www.lexaloffle.com/dl/docs/pico-8_manual.html#_INCLUDE
   
 [PICO-8 Cheat Sheet (4k - Dark).pdf](https://github.com/user-attachments/files/21449166/PICO-8.Cheat.Sheet.4k.-.Dark.pdf)
 
