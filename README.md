@@ -1,4 +1,4 @@
-# [GAME NAME HERE]
+# Fish Loops
 ## GMTK Jam 2025 Entry
 ### Features include
 - one
