@@ -1,9 +1,10 @@
 pico-8 cartridge // http://www.pico-8.com
 version 42
 __lua__
--- test-place
--- keaton
+-- loop-game
+-- james, john, keaton, lilly
 #include code.lua
+#include character.lua
 
 __gfx__
 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
