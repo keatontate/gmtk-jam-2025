@@ -20,32 +20,32 @@ function is_solid(x, y)
 end
 
 function update_pl()
- if (btn(0)) pl.x -= pl.spd
- if (btn(1)) pl.x += pl.spd 
+  if (btn(0)) pl.x -= pl.spd
+  if (btn(1)) pl.x += pl.spd 
 
- -- jump
- if (btn(2) and pl.grounded) then
+  -- jump
+  if (btn(2) and pl.grounded) then
     pl.grounded = false
     pl.velo = jump
- end
+  end
  
 
- -- enables gravity
- if not pl.grounded then
+  -- enables gravity
+  if not pl.grounded then
     pl.velo += gravity
- end
+  end
 
- local new_y = pl.y + pl.velo
+  local new_y = pl.y + pl.velo
 
- -- temp floor
-    if is_solid(pl.x + 8, new_y + 15) then
-        pl.y = flr((new_y + 15) / 8) * 8 - 16
-        pl.velo = 0
-        pl.grounded = true
-    else
-        pl.y = new_y
-        pl.grounded = false
-    end
+  -- check if floor is solid
+  if is_solid(pl.x + 8, new_y + 15) then
+    pl.y = flr((new_y + 15) / 8) * 8 - 16
+    pl.velo = 0
+    pl.grounded = true
+  else
+    pl.y = new_y
+    pl.grounded = false
+  end
 
 end
 
