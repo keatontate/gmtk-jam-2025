@@ -1,5 +1,10 @@
 # Developer notes
 
 ## Flags:
-- `0`: Standing platform. The user will snap to the top of it. Can be used for a staircase if the player wants to auto-scale the stairs
+- `0`: Solid platform. Player can't pass through it.
 - `1`: Ladder.
+
+
+# Todo
+- Player state: falling, standing, walking, climbing, working
+  - not only will this simplify player code but it will help us with animations later.
