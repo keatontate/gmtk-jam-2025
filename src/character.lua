@@ -5,7 +5,7 @@ pl={
   velo = 0,
   grounded = false,
   width = 16,
-  height = 32
+  height = 16
 }
 
 gravity = 0.3
@@ -44,8 +44,8 @@ function update_pl()
   local new_y = pl.y + pl.velo
 
   -- check if floor is solid
-  if is_solid(pl.x + pl.width/2, new_y + pl.height/2) then
-    pl.y = flr((new_y + pl.height/2) / 8) * 8 - 16
+  if is_solid(pl.x + pl.width/2, new_y + pl.height) then
+    pl.y = flr((new_y + pl.height) / 8) * 8 - 16
     pl.velo = 0
     pl.grounded = true
   else
@@ -56,5 +56,7 @@ function update_pl()
 end
 
 function draw_pl()
+  -- note: player's actual position 
+  -- is at top left corner of sprite
   spr(1,pl.x,pl.y,2,2)
 end
