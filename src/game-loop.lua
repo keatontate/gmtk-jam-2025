@@ -10,8 +10,9 @@ end
 
 function _draw()
  cls()
+ draw_map()
  draw_pl()
 
  -- temp floor
- map(0, 12, 0, 91, 16, 1)
+--  map(0, 12, 0, 91, 16, 1)
 end

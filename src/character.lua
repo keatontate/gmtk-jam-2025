@@ -15,8 +15,8 @@ function is_solid(x, y)
     local tile_y = flr(y / 8)
     local tile = mget(tile_x, tile_y)
 
-    -- temp floor
-    return tile == 48
+    -- check if the flag is 0
+    return fget(tile, 0)
 end
 
 function update_pl()
