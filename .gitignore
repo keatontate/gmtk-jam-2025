@@ -15,4 +15,4 @@ demos/
 
 # End of https://www.toptal.com/developers/gitignore/api/pico8
 
-.DS_Store
+.DS_Store.DS_Store
