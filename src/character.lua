@@ -3,7 +3,9 @@ pl={
   y=63,
   spd=1,
   velo = 0,
-  grounded = false
+  grounded = false,
+  width = 16,
+  height = 32
 }
 
 gravity = 0.3
@@ -20,6 +22,10 @@ function is_solid(x, y)
 end
 
 function update_pl()
+
+  -- check collissions
+
+
   if (btn(0)) pl.x -= pl.spd
   if (btn(1)) pl.x += pl.spd 
 
@@ -38,8 +44,8 @@ function update_pl()
   local new_y = pl.y + pl.velo
 
   -- check if floor is solid
-  if is_solid(pl.x + 8, new_y + 15) then
-    pl.y = flr((new_y + 15) / 8) * 8 - 16
+  if is_solid(pl.x + pl.width/2, new_y + pl.height/2) then
+    pl.y = flr((new_y + pl.height/2) / 8) * 8 - 16
     pl.velo = 0
     pl.grounded = true
   else
