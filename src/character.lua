@@ -4,7 +4,7 @@ pl={
   spd=1,
   velo = 0,
   grounded = false,
-  w = 16,
+  w = 8,
   h = 16
 }
 
@@ -80,6 +80,6 @@ end
 function draw_pl()
   -- note: player's actual position 
   -- is at top left corner of sprite
-  spr(1,pl.x,pl.y,2,2)
+  spr(1,pl.x,pl.y,1,2)
   print(pl.velo)
 end
