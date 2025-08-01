@@ -9,6 +9,8 @@ pl={
   h = 16
 }
 
+debug_msg = ""
+
 gravity = 0.3
 jump = -2.5
 
@@ -120,7 +122,11 @@ function update_pl()
   
 
   -- logic for interacting with machines
-
+  if (is_machine(pl.x, pl.y)) then
+    debug_msg = "machine"
+  else
+    debug_msg = ""
+  end
  
 
 end
@@ -129,4 +135,5 @@ function draw_pl()
   -- note: player's actual position 
   -- is at top left corner of sprite
   spr(1,pl.x,pl.y,1,2,flip_x)
+  print(debug_msg)
 end
