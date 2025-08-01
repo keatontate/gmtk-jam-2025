@@ -1,7 +1,4 @@
 function _init()
-    for x = 0, 15 do
-        mset(x, 12, 48)
-    end
 end
 
 function _update()
