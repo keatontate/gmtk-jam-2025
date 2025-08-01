@@ -4,6 +4,7 @@ pl={
   spd=1,
   velo = 0,
   grounded = false,
+  flip_x = false,
   w = 8,
   h = 16
 }
@@ -64,8 +65,14 @@ function update_pl()
 
 
   -- movement logic
-  if (btn(0)) and can_move_left pl.x -= pl.spd
-  if (btn(1)) and can_move_right pl.x += pl.spd 
+  if (btn(0)) and can_move_left then 
+    pl.x -= pl.spd
+    flip_x = true
+  end
+  if (btn(1)) and can_move_right then
+    pl.x += pl.spd 
+    flip_x = false
+  end
 
   -- jump
   if on_ladder then
@@ -107,5 +114,5 @@ end
 function draw_pl()
   -- note: player's actual position 
   -- is at top left corner of sprite
-  spr(1,pl.x,pl.y,1,2)
+  spr(1,pl.x,pl.y,1,2,flip_x)
 end
