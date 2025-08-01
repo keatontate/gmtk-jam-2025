@@ -34,7 +34,7 @@ function update_pl()
 
   -- ladder turns off gravity
   on_ladder = false
-  if is_ladder(pl.x, pl.y) then 
+  if is_ladder(pl.x + pl.w/2, pl.y + pl.h) then 
     on_ladder = true
   end
 
@@ -108,5 +108,4 @@ function draw_pl()
   -- note: player's actual position 
   -- is at top left corner of sprite
   spr(1,pl.x,pl.y,1,2)
-  print(pl.velo)
 end
