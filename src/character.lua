@@ -6,7 +6,7 @@ pl={
   grounded = false,
   flip_x = false,
   w = 8,
-  h = 16
+  h = 8
 }
 
 debug_msg = ""
@@ -53,9 +53,10 @@ function update_pl()
   on_ladder = false
   if is_ladder(pl.x + pl.w/2, pl.y + pl.h) then 
     on_ladder = true
+    pl.grounded = true
   end
 
-  -- check collissions
+  -- check collisions
   can_move_down = true
   can_move_left = true
   can_move_right = true
@@ -122,7 +123,7 @@ function update_pl()
       pl.y = new_y
       pl.grounded = false
     else
-      pl.y = flr((new_y + pl.h) / 8) * 8 - 16
+      pl.y = flr((new_y + pl.h) / 8) * 8 - pl.h
       pl.velo = 0
       pl.grounded = true
     end
@@ -155,7 +156,7 @@ end
 function draw_pl()
   -- note: player's actual position 
   -- is at top left corner of sprite
-  spr(1,pl.x,pl.y,1,2,flip_x)
+  spr(1,pl.x,pl.y - (pl.h) ,1,2,flip_x)
   print(debug_msg, 0, 0, 3)
   print(player_msg, pl.x - (#player_msg), pl.y, 3)
 end
