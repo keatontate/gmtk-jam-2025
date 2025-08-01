@@ -81,5 +81,4 @@ function draw_pl()
   -- note: player's actual position 
   -- is at top left corner of sprite
   spr(1,pl.x,pl.y,2,2)
-  print(pl.velo)
 end
