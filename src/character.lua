@@ -128,7 +128,7 @@ function update_pl()
   
 
   -- logic for interacting with machines
-  if (is_machine(pl.x, pl.y)) then
+  if (is_machine(pl.x, pl.y)) or is_machine(pl.x + pl.w, pl.y) then
     debug_msg = "machine"
     if (btn(4)) then 
       debug_msg = "interacting..."
