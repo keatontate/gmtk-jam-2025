@@ -24,8 +24,9 @@
 
 
 # BUGS
-- [ ] Second-to-last row of the map is cut off..?
+- [X] Second-to-last row of the map is cut off..?
 - [ ] Player's hitbox is taller than their sprite. This is hard to fix, james should look at character.lua line 103:
 ```lua
 pl.y = flr((new_y + pl.h) / 8) * 8 - 16
 ```
+- [ ] Player can sometimes glitch into floor when falling large distance on right side of map, maybe use `_update60()` for collision checking?
