@@ -11,6 +11,8 @@ pl={
 
 debug_msg = ""
 
+player_msg = ""
+
 gravity = 0.3
 jump = -2.5
 
@@ -131,11 +133,14 @@ function update_pl()
   if is_machine(pl.x, pl.y + pl.h - buffer)
   or is_machine(pl.x + pl.w, pl.y + pl.h - buffer) then
     debug_msg = "machine"
-    if (btn(4)) then 
+    player_msg = "\142/\151"
+    if (btn(4) or btn(5)) then 
       debug_msg = "interacting..."
+      player_msg = ""
     end
   else
     debug_msg = ""
+    player_msg = ""
   end
 
 
@@ -151,5 +156,6 @@ function draw_pl()
   -- note: player's actual position 
   -- is at top left corner of sprite
   spr(1,pl.x,pl.y,1,2,flip_x)
-  print(debug_msg)
+  print(debug_msg, 0, 0, 3)
+  print(player_msg, pl.x - (#player_msg), pl.y, 3)
 end
