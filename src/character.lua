@@ -21,7 +21,22 @@ function is_solid(x, y)
   return fget(tile, 0)
 end
 
+function is_ladder(x, y)
+  local tile_x = flr(x / 8)
+  local tile_y = flr(y / 8)
+  local tile = mget(tile_x, tile_y)
+
+  -- check if the flag is 1
+  return fget(tile, 1)
+end
+
 function update_pl()
+
+  -- ladder turns off gravity
+  on_ladder = false
+  if is_ladder(pl.x, pl.y) then 
+    on_ladder = true
+  end
 
   -- check collissions
   can_move_down = true
@@ -53,27 +68,39 @@ function update_pl()
   if (btn(1)) and can_move_right pl.x += pl.spd 
 
   -- jump
-  if (btn(2) and pl.grounded and can_move_up) then
-    pl.grounded = false
-    pl.velo = jump
-  end
- 
-  -- enables gravity
-  if not pl.grounded then
-    pl.velo += gravity
-  end
-
-  local new_y = pl.y + pl.velo
-
-  -- update player y based on vel
-  if can_move_down then
-    pl.y = new_y
-    pl.grounded = false
+  if on_ladder then
+    if btn(2) then
+      pl.y -= pl.spd
+    end
+    if btn(3) and can_move_down then
+      pl.y += pl.spd
+    end
   else
-    pl.y = flr((new_y + pl.h) / 8) * 8 - 16
-    pl.velo = 0
-    pl.grounded = true
+    if (btn(2) and pl.grounded and can_move_up) then
+      pl.grounded = false
+      pl.velo = jump
+    end
+
+    -- enables gravity
+    if not pl.grounded then
+      pl.velo += gravity
+    end
+
+    local new_y = pl.y + pl.velo
+
+    -- update player y based on vel
+    if can_move_down then
+      pl.y = new_y
+      pl.grounded = false
+    else
+      pl.y = flr((new_y + pl.h) / 8) * 8 - 16
+      pl.velo = 0
+      pl.grounded = true
+    end
   end
+  
+
+ 
 
 end
 
