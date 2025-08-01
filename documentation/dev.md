@@ -2,7 +2,8 @@
 
 ## Flags:
 - `0`: Solid platform. Player can't pass through it.
-- `1`: Ladder.
+- `1`: Ladder. Basically gravity and jumps turn off, they have freedom to move up or down
+- `2`: Interactive object (upgrade tower)
 
 ## Sound Effects List:
 - RREEAROW! - 00
