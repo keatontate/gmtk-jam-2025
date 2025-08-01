@@ -20,3 +20,7 @@
 # Todo
 - Player state: falling, standing, walking, climbing, working
   - not only will this simplify player code but it will help us with animations later.
+
+
+# BUGS
+- [ ] Second-to-last row of the map is cut off..?
