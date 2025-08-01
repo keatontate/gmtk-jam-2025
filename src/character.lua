@@ -9,26 +9,40 @@ pl={
   h = 16
 }
 
+debug_msg = ""
+
 gravity = 0.3
 jump = -2.5
 
--- collision checkers
-function is_solid(x, y)
+function get_tile(x,y)
+  -- takes a position and returns
+  -- the sprite number on that location
   local tile_x = flr(x / 8)
   local tile_y = flr(y / 8)
   local tile = mget(tile_x, tile_y)
+  return tile
+end
+
+-- collision checkers
+function is_solid(x, y)
+  local tile = get_tile(x,y)
 
   -- check if the flag is 0
   return fget(tile, 0)
 end
 
 function is_ladder(x, y)
-  local tile_x = flr(x / 8)
-  local tile_y = flr(y / 8)
-  local tile = mget(tile_x, tile_y)
+  local tile = get_tile(x,y)
 
   -- check if the flag is 1
   return fget(tile, 1)
+end
+
+function is_machine(x,y)
+  local tile = get_tile(x,y)
+
+  -- check if the flag is 2
+  return fget(tile, 2)
 end
 
 function update_pl()
@@ -51,6 +65,12 @@ function update_pl()
   buffer = 2
 
   if is_solid(pl.x + pl.w/2, pl.y + pl.h) then
+    can_move_down = false
+  end
+  -- extra 'can_move_down' check
+  -- (with buffer) to prevent 
+  -- fall through floor glitch
+  if is_solid(pl.x + pl.w/2, pl.y + pl.h - buffer) then
     can_move_down = false
   end
   if is_solid(pl.x, pl.y + pl.h - buffer) then
@@ -107,7 +127,23 @@ function update_pl()
   end
   
 
- 
+  -- logic for interacting with machines
+  if is_machine(pl.x, pl.y + pl.h - buffer)
+  or is_machine(pl.x + pl.w, pl.y + pl.h - buffer) then
+    debug_msg = "machine"
+    if (btn(4)) then 
+      debug_msg = "interacting..."
+    end
+  else
+    debug_msg = ""
+  end
+
+
+  -- keep character on screen
+  if (pl.x > 128 - pl.w) pl.x = 128 - pl.w
+  if (pl.x < 0) pl.x = 0
+  -- respawn if they fall off
+  if (pl.y > 128) pl.y = 83
 
 end
 
@@ -115,4 +151,5 @@ function draw_pl()
   -- note: player's actual position 
   -- is at top left corner of sprite
   spr(1,pl.x,pl.y,1,2,flip_x)
+  print(debug_msg)
 end
