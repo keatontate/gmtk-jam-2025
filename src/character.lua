@@ -67,6 +67,12 @@ function update_pl()
   if is_solid(pl.x + pl.w/2, pl.y + pl.h) then
     can_move_down = false
   end
+  -- extra 'can_move_down' check
+  -- (with buffer) to prevent 
+  -- fall through floor glitch
+  if is_solid(pl.x + pl.w/2, pl.y + pl.h - buffer) then
+    can_move_down = false
+  end
   if is_solid(pl.x, pl.y + pl.h - buffer) then
     can_move_left = false
   end
@@ -130,7 +136,13 @@ function update_pl()
   else
     debug_msg = ""
   end
- 
+
+
+  -- keep character on screen
+  if (pl.x > 128 - pl.w) pl.x = 128 - pl.w
+  if (pl.x < 0) pl.x = 0
+  -- respawn if they fall off
+  if (pl.y > 128) pl.y = 83
 
 end
 
