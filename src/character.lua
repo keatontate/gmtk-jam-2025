@@ -12,23 +12,35 @@ pl={
 gravity = 0.3
 jump = -2.5
 
--- collision checkers
-function is_solid(x, y)
+function get_tile(x,y)
+  -- takes a position and returns
+  -- the sprite number on that location
   local tile_x = flr(x / 8)
   local tile_y = flr(y / 8)
   local tile = mget(tile_x, tile_y)
+  return tile
+end
+
+-- collision checkers
+function is_solid(x, y)
+  local tile = get_tile(x,y)
 
   -- check if the flag is 0
   return fget(tile, 0)
 end
 
 function is_ladder(x, y)
-  local tile_x = flr(x / 8)
-  local tile_y = flr(y / 8)
-  local tile = mget(tile_x, tile_y)
+  local tile = get_tile(x,y)
 
   -- check if the flag is 1
   return fget(tile, 1)
+end
+
+function is_machine(x,y)
+  local tile = get_tile(x,y)
+
+  -- check if the flag is 2
+  return fget(tile, 2)
 end
 
 function update_pl()
@@ -106,6 +118,8 @@ function update_pl()
     end
   end
   
+
+  -- logic for interacting with machines
 
  
 
