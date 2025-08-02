@@ -1,14 +1,17 @@
 function _init()
+  fish_start()
 end
 
 function _update()
   update_pl()
   update_machines()
+  spawn_fish()
 end
 
 function _draw()
   cls()
   draw_map()
+  draw_count()
   draw_machines()
   draw_pl()
 
