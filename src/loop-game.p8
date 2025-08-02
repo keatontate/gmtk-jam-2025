@@ -12,6 +12,7 @@ pal({[0]=-13,5,6,7,13,12,-11,3,-3,-9,-6,-5,-8,8,-2,15},1)
 #include game-loop.lua
 #include character.lua
 #include map.lua
+#include machines.lua
 #include fish.lua
 
 __gfx__

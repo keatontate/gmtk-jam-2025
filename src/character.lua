@@ -133,13 +133,20 @@ function update_pl()
   
 
   -- logic for interacting with machines
-  if is_machine(pl.x, pl.y + pl.h - buffer)
-  or is_machine(pl.x + pl.w, pl.y + pl.h - buffer) then
+  local playerx1 = pl.x
+  local playerx2 = pl.x+pl.w
+  local playery = pl.y + pl.h - buffer
+  if is_machine(playerx1, playery)
+  or is_machine(playerx2, playery) then
     debug_msg = "machine"
     player_msg = "\142/\151"
     if (btn(4) or btn(5)) then 
       debug_msg = "interacting..."
       player_msg = ""
+      
+      fix_machine(get_tile(playerx1, playery))
+      fix_machine(get_tile(playerx2, playery))
+
     end
   else
     debug_msg = ""
