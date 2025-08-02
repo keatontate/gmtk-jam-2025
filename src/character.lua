@@ -1,7 +1,7 @@
 pl={
   x=63,
   y=83,
-  spd=1,
+  spd=1.5,
   velo = 0,
   grounded = false,
   flip_x = false,
@@ -54,6 +54,7 @@ function update_pl()
   if is_ladder(pl.x + pl.w/2, pl.y + pl.h) then 
     on_ladder = true
     pl.grounded = true
+    pl.velo = 0
   end
 
   -- check collisions
@@ -100,10 +101,10 @@ function update_pl()
   -- jump
   if on_ladder then
     if btn(2) then
-      pl.y -= pl.spd
+      pl.y -= pl.spd / 2
     end
     if btn(3) and can_move_down then
-      pl.y += pl.spd
+      pl.y += pl.spd / 2
     end
   else
     if (btn(2) and pl.grounded and can_move_up) then
@@ -113,8 +114,9 @@ function update_pl()
 
     -- enables gravity
     if not pl.grounded then
-      if pl.velo < 4.5 then -- caps velocity, preventing clipping
-       pl.velo += gravity
+      pl.velo += gravity
+      if pl.velo > 5 then -- caps velocity, preventing clipping
+        pl.velo = 3
       end
     end
 
