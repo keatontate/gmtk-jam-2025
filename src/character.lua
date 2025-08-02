@@ -113,7 +113,9 @@ function update_pl()
 
     -- enables gravity
     if not pl.grounded then
-      pl.velo += gravity
+      if pl.velo < 2.5 then -- caps velocity, preventing clipping
+       pl.velo += gravity
+      end
     end
 
     local new_y = pl.y + pl.velo
@@ -158,5 +160,5 @@ function draw_pl()
   -- is at top left corner of sprite
   spr(1,pl.x,pl.y - (pl.h) ,1,2,flip_x)
   print(debug_msg, 0, 0, 3)
-  print(player_msg, pl.x - (#player_msg), pl.y, 3)
+  print(player_msg, pl.x - (#player_msg), pl.y - 8, 5)
 end
