@@ -5,6 +5,7 @@ pl={
   velo = 0,
   grounded = false,
   flip_x = false,
+  actively_climbing=false,
   w = 8,
   h = 8
 }
@@ -103,15 +104,30 @@ function update_pl()
   if on_ladder then
     if btn(2) then
       pl.y -= pl.spd / 2
-      playing_sound = true
-      sfx(9)
-    end
-    if btn(3) and can_move_down then
+
+      -- ladder sound effects
+      -- note: uses channel 1 (same as flag)
+      if not pl.actively_climbing then 
+        pl.actively_climbing = true
+        sfx(9,1)
+      end 
+    elseif btn(3) and can_move_down then
       pl.y += pl.spd / 2
+      if not pl.actively_climbing then 
+        pl.actively_climbing = true
+        sfx(9,1)
+      end 
+    else
+      if pl.actively_climbing then 
+        pl.actively_climbing = false
+        sfx(-1,1)
+      end 
     end
+    
   else
-    playing_sound = false
-    sfx(-2)
+    -- ensure no ladder sounds while not on ladder
+    sfx(-1,1)
+    actively_climbing = false
     if (btn(2) and pl.grounded and can_move_up) then
       pl.grounded = false
       pl.velo = jump
