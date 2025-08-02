@@ -4,6 +4,7 @@
 - `0`: Solid platform. Player can't pass through it.
 - `1`: Ladder. Basically gravity and jumps turn off, they have freedom to move up or down
 - `2`: Interactive object (upgrade tower)
+- `3`: Shop
 
 ## sfx:
 NOTE: Sound effects should use same channel as flags. for example ladder sfx is played on channel 1. 

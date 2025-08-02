@@ -47,6 +47,13 @@ function is_machine(x,y)
   return fget(tile, 2)
 end
 
+function is_shop(x,y)
+  local tile = get_tile(x,y)
+
+  -- check if the flag is 3
+  return fget(tile, 3)
+end
+
 function update_pl()
   -- turn of sound playing for ladder noises
   playing_sound = false
@@ -177,6 +184,20 @@ function update_pl()
     player_msg = ""
   end
 
+  -- logic for shop:
+  if is_shop(playerx1, playery)
+  or is_shop(playerx2, playery) then
+    player_msg = "\142/\151"
+    if (btn(4) or btn(5)) then 
+      player_msg = "shop"
+      
+      -- fix_machine(get_tile(playerx1, playery))
+      -- fix_machine(get_tile(playerx2, playery))
+    end
+  else
+    debug_msg = ""
+    player_msg = ""
+  end
 
   -- keep character on screen
   if (pl.x > 128 - pl.w) pl.x = 128 - pl.w

@@ -1,6 +1,7 @@
 -- Manages the state of machines
 -- Done: machines breaking (increase delay)
 -- TODO: deterministic machine refilling
+-- todo: if machine breaks twice, a worse thing breaks
 
 poop_machine = {
   sprites = {73,41,57,52},
