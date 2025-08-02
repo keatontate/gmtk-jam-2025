@@ -86,7 +86,7 @@ function update_machines()
     -- instead of breaking it again,
     -- reduce fish happiness
     for mach in all(machines) do 
-      if rnd() < mach.break_prob then
+      if rnd() < mach.break_prob and not mach.broken then
         mach.broken = true
         start_particles(mach, mach.x, mach.y)
         sfx(7)
