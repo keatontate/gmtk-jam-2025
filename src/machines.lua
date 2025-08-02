@@ -59,6 +59,7 @@ function fix_machine(sprite_number)
   -- get which machine it is
   for mach in all(machines) do 
     if contains(mach.sprites, sprite_number) then
+      if mach.broken == true then sfx(6) end
       mach.broken = false
       stop_particles(mach)
     end
@@ -88,6 +89,7 @@ function update_machines()
       if rnd() < mach.break_prob then
         mach.broken = true
         start_particles(mach, mach.x, mach.y)
+        sfx(7)
       end
     end
   end
