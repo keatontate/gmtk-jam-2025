@@ -11,12 +11,16 @@ smoke_sprites = {
 particle_locations = {}
 
 function start_particles(id, x, y)
+
+  -- check if it's already there
+  if (particle_locations[id] != nil) return
+
   particle_locations[id] = {}
   particle_locations[id].i = 0
   particle_locations[id].x = x
   particle_locations[id].y = y
   particle_locations[id].smoke_clouds = {}
-  particle_locations[id].smoke_y = y - 10
+  particle_locations[id].smoke_y = y
 end
 
 function stop_particles(id)
@@ -29,7 +33,16 @@ function update_particles()
 
     -- random chance to add smoke
     if rnd() > 0.9 then
-      -- circfill()
+      -- note: x should get more spread out
+      -- as smoke_y decreases
+      local spread = (p.y - p.smoke_y) / 10
+      local x = p.x - spread + rnd(2 * spread)
+      local y = p.smoke_y
+      local size = rnd(2) + spread
+      local color = 4
+      add(p.smoke_clouds, {x=x, y=y, size=size, color=color})
+
+      p.smoke_y -= rnd(3)
     end
   end
 
@@ -39,5 +52,8 @@ end
 function draw_particles()
   for id, particle in pairs(particle_locations) do
     spr(smoke_sprites[flr(particle.i) + 1], particle.x, particle.y)
+    for c in all(particle.smoke_clouds) do
+      circ(c.x, c.y, c.size, c.color)
+    end
   end
 end
