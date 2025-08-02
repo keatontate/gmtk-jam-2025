@@ -187,7 +187,10 @@ function update_pl()
   -- logic for shop:
   if is_shop(playerx1, playery)
   or is_shop(playerx2, playery) then
+
+    -- helper message
     player_msg = "\142/\151"
+
     if (btnp(4) or btnp(5)) then 
       toggle_shop()
       
@@ -195,8 +198,8 @@ function update_pl()
       -- fix_machine(get_tile(playerx2, playery))
     end
   else
-    debug_msg = ""
-    player_msg = ""
+    -- if player moves it gets out of shop
+    shop_visible = false
   end
 
   -- keep character on screen
