@@ -113,7 +113,7 @@ function update_pl()
 
     -- enables gravity
     if not pl.grounded then
-      if pl.velo < 2.5 then -- caps velocity, preventing clipping
+      if pl.velo < 4.5 then -- caps velocity, preventing clipping
        pl.velo += gravity
       end
     end
