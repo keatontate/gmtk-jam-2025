@@ -39,8 +39,10 @@ function update_particles()
       local x = p.x - spread + rnd(2 * spread)
       local y = p.smoke_y
       local size = rnd(2) + spread
-      local color = 4
-      add(p.smoke_clouds, {x=x, y=y, size=size, color=color})
+      local colors = {4,2,6}
+      local color = colors[flr(rnd(#colors)) + 1]
+      local filled = rnd() > 0.7
+      add(p.smoke_clouds, {x=x, y=y, size=size, color=color, filled=filled})
 
       p.smoke_y -= rnd(3)
     end
@@ -53,7 +55,14 @@ function draw_particles()
   for id, particle in pairs(particle_locations) do
     spr(smoke_sprites[flr(particle.i) + 1], particle.x, particle.y)
     for c in all(particle.smoke_clouds) do
-      circ(c.x, c.y, c.size, c.color)
+
+      -- keep smoke from going off top of screen
+      local cy = max(c.y, 0)
+      if (c.filled) then
+        circfill(c.x, cy, c.size, c.color)
+      else
+        circ(c.x, cy, c.size, c.color)
+      end
     end
   end
 end
