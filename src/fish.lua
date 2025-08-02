@@ -1,7 +1,8 @@
 fish = {
     count = 0,
     thousand = 0,
-    happiness = 0
+    happiness = 0,
+    happy_max = 10
 }
 
 tank = {
@@ -31,7 +32,15 @@ function spawn_fish()
     end
 end
 
+function happiness()
+    broke = broke_count()
+    if broke == 0 and fish.happiness < fish.happy_max then
+        fish.happiness += 0.01
+    else
+        fish.happiness = fish.happiness - broke * 0.001
+    end
 
+end
 
 function format(count, thousand)
         local total = thousand * 1000 + count
@@ -49,4 +58,6 @@ end
 function draw_count()
     local display = format(fish.count, fish.thousand)
     print(display, 92 - #display * 2, 37, 0)
+    happiness()
+    print(fish.happiness, 15, 15, 0)
 end

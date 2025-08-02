@@ -65,6 +65,16 @@ function fix_machine(sprite_number)
   end
 end
 
+function broke_count()
+    local broke = 0
+    for mach in all(machines) do
+        if mach.broken then
+            broke += 1
+        end
+    end
+    return broke
+end
+
 
 function update_machines()
   i += 1
@@ -81,7 +91,6 @@ function update_machines()
       end
     end
   end
-
 end
 
 
