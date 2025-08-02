@@ -189,10 +189,11 @@ function update_pl()
   or is_shop(playerx2, playery) then
 
     -- helper message
-    player_msg = "\142/\151"
-
-    if (btnp(4) or btnp(5)) then 
+    player_msg = "\142"
+    
+    if (btnp(4)) then 
       toggle_shop()
+      sfx(10)
       
       -- fix_machine(get_tile(playerx1, playery))
       -- fix_machine(get_tile(playerx2, playery))
