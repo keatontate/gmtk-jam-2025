@@ -4,26 +4,41 @@
 
 poop_machine = {
   sprites = {73,41,57,52},
-  broken=true,
-  break_prob = 0.1
+  broken=false,
+  break_prob = 0.1,
+  x = 15,
+  y = 100
 }
 
 temp_machine = {
   sprites = {59,75},
-  broken = true,
-  break_prob = 0.2
+  broken = false,
+  break_prob = 0.2,
+  x = 6,
+  y = 10
 }
 
 oxyg_machine = {
   sprites = {99,100,115,116,131},
-  broken = true,
-  break_prob = 0.3
+  broken = false,
+  break_prob = 0.3,
+  x = 25,
+  y = 39
 }
 
 food_machine = {
   sprites = {28,44},
-  broken = true,
-  break_prob = 0.2
+  broken = false,
+  break_prob = 0.2,
+  x = 118,
+  y = 33
+}
+
+machines = {
+  poop_machine,
+  temp_machine,
+  oxyg_machine,
+  food_machine
 }
 
 
@@ -42,23 +57,12 @@ function fix_machine(sprite_number)
   -- input: sprite number from mget() function
 
   -- get which machine it is
-  if contains(poop_machine.sprites, sprite_number) then
-    poop_machine.broken = false
+  for mach in all(machines) do 
+    if contains(mach.sprites, sprite_number) then
+      mach.broken = false
+      stop_particles(mach)
+    end
   end
-
-  if contains(temp_machine.sprites, sprite_number) then
-    temp_machine.broken = false
-  end
-
-  if contains(oxyg_machine.sprites, sprite_number) then
-    oxyg_machine.broken = false
-  end
-
-  if contains(food_machine.sprites, sprite_number) then
-    food_machine.broken = false
-  end
-  
-  
 end
 
 
@@ -70,17 +74,11 @@ function update_machines()
     -- todo: if it's already broken,
     -- instead of breaking it again,
     -- reduce fish happiness
-    if rnd() < poop_machine.break_prob then
-      poop_machine.broken = true
-    end
-    if rnd() < temp_machine.break_prob then 
-      temp_machine.broken = true
-    end
-    if rnd() < oxyg_machine.break_prob then 
-      oxyg_machine.broken = true
-    end
-    if rnd() < food_machine.break_prob then 
-      food_machine.broken = true
+    for mach in all(machines) do 
+      if rnd() < mach.break_prob then
+        mach.broken = true
+        start_particles(mach, mach.x, mach.y)
+      end
     end
   end
 
@@ -88,9 +86,5 @@ end
 
 
 function draw_machines()
-  print("poop machine broken:" .. tostr(poop_machine.broken), 0, 122, 3)
-  print("temp machine broken:" .. tostr(temp_machine.broken), 0, 116, 3)
-  print("oxyg machine broken:" .. tostr(oxyg_machine.broken), 0, 110, 3)
-  print("food machine broken:" .. tostr(food_machine.broken), 0, 104, 3)
 
 end

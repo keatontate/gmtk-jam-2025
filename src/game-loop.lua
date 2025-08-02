@@ -6,6 +6,7 @@ function _update()
   update_pl()
   update_machines()
   spawn_fish()
+  update_particles()
   autosell()
 end
 
@@ -15,6 +16,7 @@ function _draw()
   draw_count()
   draw_machines()
   draw_pl()
+  draw_particles()
 
   -- temp floor
   --  map(0, 12, 0, 91, 16, 1)
