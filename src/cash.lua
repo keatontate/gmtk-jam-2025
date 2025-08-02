@@ -20,16 +20,17 @@ function autosell()
     -- testing
     if fish.count > 10 then 
         sell(5)
+        sfx(2)
     end
-    if fish.count > 7500 then
-        sell(1000)
-    elseif fish.count > 1500 then
-        sell(5)
-    elseif fish.count > 500 then
-        sell(1)
-    else
-        sell(0)
-    end
+    -- if fish.count > 7500 then
+    --     sell(1000)
+    -- elseif fish.count > 1500 then
+    --     sell(5)
+    -- elseif fish.count > 500 then
+    --     sell(1)
+    -- else
+    --     sell(0)
+    -- end
 end
     
 
