@@ -72,6 +72,7 @@ function update_machines()
     -- reduce fish happiness
     if rnd() < poop_machine.break_prob then
       poop_machine.broken = true
+      start_particles("poop_machine", 89, 89)
     end
     if rnd() < temp_machine.break_prob then 
       temp_machine.broken = true
