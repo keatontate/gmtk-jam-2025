@@ -38,6 +38,6 @@ end
 
 
 function draw_machines()
-  print("broken:" .. tostr(poop_machine.broken) .. i/100, 0, 0, 3)
+  print("poop machine broken:" .. tostr(poop_machine.broken) .. i/100, 0, 0, 3)
 
 end
