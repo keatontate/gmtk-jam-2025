@@ -1,16 +1,29 @@
 -- Manages the state of machines
 
 poop_machine = {
-  sprites = {28,44},
-  broken=false,
-  break_prob = 0.5
+  sprites = {73,41,57,52},
+  broken=true,
+  break_prob = 0.1
 }
 
 temp_machine = {
   sprites = {59,75},
-  broken = false,
+  broken = true,
   break_prob = 0.2
 }
+
+oxyg_machine = {
+  sprites = {99,100,115,116,131},
+  broken = true,
+  break_prob = 0.3
+}
+
+food_machine = {
+  sprites = {28,44},
+  broken = true,
+  break_prob = 0.2
+}
+
 
 i = 0
 time_delay = 100
@@ -34,6 +47,14 @@ function fix_machine(sprite_number)
   if contains(temp_machine.sprites, sprite_number) then
     temp_machine.broken = false
   end
+
+  if contains(oxyg_machine.sprites, sprite_number) then
+    oxyg_machine.broken = false
+  end
+
+  if contains(food_machine.sprites, sprite_number) then
+    food_machine.broken = false
+  end
   
   
 end
@@ -53,13 +74,21 @@ function update_machines()
     if rnd() < temp_machine.break_prob then 
       temp_machine.broken = true
     end
+    if rnd() < oxyg_machine.break_prob then 
+      oxyg_machine.broken = true
+    end
+    if rnd() < food_machine.break_prob then 
+      food_machine.broken = true
+    end
   end
 
 end
 
 
 function draw_machines()
-  print("poop machine broken:" .. tostr(poop_machine.broken) .. i/time_delay, 0, 0, 3)
-  print("temp machine broken:" .. tostr(temp_machine.broken) .. i/time_delay, 0, 10, 3)
+  print("poop machine broken:" .. tostr(poop_machine.broken), 0, 0, 3)
+  print("temp machine broken:" .. tostr(temp_machine.broken), 0, 6, 3)
+  print("oxyg machine broken:" .. tostr(oxyg_machine.broken), 0, 12, 3)
+  print("food machine broken:" .. tostr(food_machine.broken), 0, 18, 3)
 
 end
