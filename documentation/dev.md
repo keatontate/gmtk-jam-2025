@@ -5,6 +5,9 @@
 - `1`: Ladder. Basically gravity and jumps turn off, they have freedom to move up or down
 - `2`: Interactive object (upgrade tower)
 
+## sfx:
+NOTE: Sound effects should use same channel as flags. for example ladder sfx is played on channel 1. 
+
 ## Sound Effects List:
 - RREEAROW! - 00
 - meow - 01
