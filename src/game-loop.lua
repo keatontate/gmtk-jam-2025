@@ -21,6 +21,7 @@ function _update()
   spawn_fish()
   update_particles()
   autosell()
+  update_shop()
 end
 
 function _draw()
@@ -31,6 +32,7 @@ function _draw()
   draw_machines()
   draw_pl()
   draw_particles()
+  draw_shop()
 
   if not tutorial.finished then
     draw_tutorial()

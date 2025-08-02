@@ -188,8 +188,8 @@ function update_pl()
   if is_shop(playerx1, playery)
   or is_shop(playerx2, playery) then
     player_msg = "\142/\151"
-    if (btn(4) or btn(5)) then 
-      player_msg = "shop"
+    if (btnp(4) or btnp(5)) then 
+      toggle_shop()
       
       -- fix_machine(get_tile(playerx1, playery))
       -- fix_machine(get_tile(playerx2, playery))
