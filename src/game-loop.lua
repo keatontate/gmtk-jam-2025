@@ -6,6 +6,7 @@ function _update()
   update_pl()
   update_machines()
   spawn_fish()
+  autosell()
 end
 
 function _draw()

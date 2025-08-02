@@ -34,7 +34,15 @@ function draw_map()
   rectfill(11,5,55,24,11)
   -- -- for fish count
   rectfill(81,33,101,44,6)
-  rectfill(82,34,100,43,11)
+  if (fish.count / tank.max) < 0.3 then
+    rectfill(82,34,100,43,11)
+  elseif (fish.count / tank.max) < 0.5 then
+    rectfill(82,34,100,43,10)
+  elseif (fish.count / tank.max) < 0.8 then
+    rectfill(82,34,100,43,9)
+  else
+    rectfill(82,34,100,43,13)
+  end
 
   -- below stuff gets called in draw function
   -- draw top layer sprites/fish

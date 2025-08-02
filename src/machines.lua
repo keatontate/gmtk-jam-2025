@@ -88,9 +88,9 @@ end
 
 
 function draw_machines()
-  print("poop machine broken:" .. tostr(poop_machine.broken), 0, 0, 3)
-  print("temp machine broken:" .. tostr(temp_machine.broken), 0, 6, 3)
-  print("oxyg machine broken:" .. tostr(oxyg_machine.broken), 0, 12, 3)
-  print("food machine broken:" .. tostr(food_machine.broken), 0, 18, 3)
+  print("poop machine broken:" .. tostr(poop_machine.broken), 0, 122, 3)
+  print("temp machine broken:" .. tostr(temp_machine.broken), 0, 116, 3)
+  print("oxyg machine broken:" .. tostr(oxyg_machine.broken), 0, 110, 3)
+  print("food machine broken:" .. tostr(food_machine.broken), 0, 104, 3)
 
 end

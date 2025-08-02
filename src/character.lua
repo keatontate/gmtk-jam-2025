@@ -10,7 +10,6 @@ pl={
 }
 
 debug_msg = ""
-
 player_msg = ""
 
 gravity = 0.3
@@ -161,6 +160,12 @@ function update_pl()
   if (pl.x < 0) pl.x = 0
   -- respawn if they fall off
   if (pl.y > 128) pl.y = 83
+
+
+  -- TEMP sell
+  if (btn(4) and btn(5)) then
+    sell(1)
+  end
 
 end
 

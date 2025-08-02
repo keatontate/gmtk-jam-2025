@@ -4,32 +4,34 @@ fish = {
     happiness = 0
 }
 
+tank = {
+    max = 0
+}
+
+exponential = 1.05
+rate = 1
+
+
 function fish_start()
     fish.count = 2
     fish.happiness = 10
-    tank.max = 20
+    tank.max = 300
 end
 
 last_spawn_time = -1
 
 function spawn_fish()
-    if time() - last_spawn_time >= 1 and fish.happiness > 8 then
-        fish.count *= 1.05
+    if time() - last_spawn_time >= rate and fish.happiness > 8 and fish.count < tank.max then
+        fish.count *= exponential
         last_spawn_time = time()
         if fish.count > 999 then
             fish.thousand += flr(fish.count / 1000)
             fish.count = fish.count % 1000
-end
+        end
     end
 end
 
-tank = {
-    max = 0
-}
 
-function digits(n)
-    return #tostr(abs(n))
-end
 
 function format(count, thousand)
         local total = thousand * 1000 + count
@@ -43,8 +45,6 @@ function format(count, thousand)
         return tostr(flr(total / 1000)).."k"
     end
 end
-
-
 
 function draw_count()
     local display = format(fish.count, fish.thousand)
