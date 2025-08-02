@@ -47,6 +47,8 @@ function is_machine(x,y)
 end
 
 function update_pl()
+  -- turn of sound playing for ladder noises
+  playing_sound = false
 
   -- ladder turns off gravity
   on_ladder = false
@@ -101,14 +103,19 @@ function update_pl()
   if on_ladder then
     if btn(2) then
       pl.y -= pl.spd / 2
+      playing_sound = true
+      sfx(9)
     end
     if btn(3) and can_move_down then
       pl.y += pl.spd / 2
     end
   else
+    playing_sound = false
+    sfx(-2)
     if (btn(2) and pl.grounded and can_move_up) then
       pl.grounded = false
       pl.velo = jump
+      sfx(3)
     end
 
     -- enables gravity
@@ -162,7 +169,7 @@ function update_pl()
   if (pl.y > 128) pl.y = 83
 
 
-  -- TEMP sell
+  -- temp sell
   if (btn(4) and btn(5)) then
     sell(1)
   end
