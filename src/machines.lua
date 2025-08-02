@@ -5,7 +5,9 @@
 poop_machine = {
   sprites = {73,41,57,52},
   broken=true,
-  break_prob = 0.1
+  break_prob = 0.1,
+  x = 15,
+  y = 100
 }
 
 temp_machine = {
@@ -73,7 +75,7 @@ function update_machines()
     -- reduce fish happiness
     if rnd() < poop_machine.break_prob then
       poop_machine.broken = true
-      start_particles("poop_machine", 89, 89)
+      start_particles("poop_machine", poop_machine.x, poop_machine.y)
     end
     if rnd() < temp_machine.break_prob then 
       temp_machine.broken = true
