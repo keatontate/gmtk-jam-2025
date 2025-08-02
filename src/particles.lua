@@ -13,7 +13,7 @@ function start_particles(id, x, y)
 end
 
 function stop_particles(id)
-  del(particle_locations, id)
+  particle_locations[id] = nil
 end
 
 function update_particles()

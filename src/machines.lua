@@ -44,6 +44,7 @@ function fix_machine(sprite_number)
   -- get which machine it is
   if contains(poop_machine.sprites, sprite_number) then
     poop_machine.broken = false
+    stop_particles("poop_machine")
   end
 
   if contains(temp_machine.sprites, sprite_number) then
