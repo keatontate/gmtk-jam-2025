@@ -19,7 +19,10 @@ end
 function draw_shop()
   if (not shop_visible) return
 
-  local xoffset = 40
+  -- draw the rectangle
+  local xoffset = 30
   local yoffset = 20
   rectfill(xoffset, yoffset, 128-xoffset, 128-yoffset, 11)
+  rect(xoffset, yoffset, 128-xoffset, 128-yoffset, 7)
+  rect(xoffset-1, yoffset-1, 128-xoffset+1, 128-yoffset+1, 1)
 end
