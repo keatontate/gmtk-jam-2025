@@ -38,7 +38,8 @@ function update_particles()
       local spread = (p.y - p.smoke_y) / 10
       local x = p.x - spread + rnd(2 * spread)
       local y = p.smoke_y
-      local size = rnd(2) + spread
+      -- cap size so it doesn't get out of hand
+      local size = min(rnd(2) + spread, 10)
       local colors = {4,2,6}
       local color = colors[flr(rnd(#colors)) + 1]
       local filled = rnd() > 0.7
