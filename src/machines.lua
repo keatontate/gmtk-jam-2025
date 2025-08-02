@@ -21,7 +21,7 @@ temp_machine = {
 oxyg_machine = {
   sprites = {99,100,115,116,131},
   broken = false,
-  break_prob = 0.3,
+  break_prob = 0.09,
   x = 25,
   y = 39
 }
