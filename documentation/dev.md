@@ -40,3 +40,19 @@ pl.y = flr((new_y + pl.h) / 8) * 8 - 16
         Added a max velocity to prevent it -Jame
 - [ ] Sfx all need separate channels, they are interrupting eachother
 - [x] Sell function isn't quite right. It allows you to sell more than you have
+
+
+# Releasing
+1. capture label
+```
+sspr(8, 6, 8, 10, 5, 0, 120, 128)
+```
+2. capture label with fn + f7
+3. export to html
+```
+export index.html
+```
+4. zip it up and put it on itch
+```
+folder
+```

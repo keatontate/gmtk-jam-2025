@@ -1,4 +1,5 @@
 # Fish Loops
+- [Play game](https://john9francis.itch.io/fish-loop-factory)
 ## GMTK Jam 2025 Entry
 ### Features include
 - one
