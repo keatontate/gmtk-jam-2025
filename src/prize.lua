@@ -10,8 +10,8 @@ function prize_reset()
   prize_loops = 0
 
   prize_indx = 0
-  prize_delay = 50
-  prize_prob = 1
+  prize_delay = 200
+  prize_prob = 0.1
   prize_going = false
 
   first_passes = 0

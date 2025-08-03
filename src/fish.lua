@@ -82,10 +82,16 @@ function format(count, thousand)
 end
 
 function draw_count()
-    local display = format(fish.count, fish.thousand)
-    print(display, 92 - #display * 2, 37, 0)
+    local display =":"..format(fish.count, fish.thousand)
+    spr(16, 92 - #display * 2 -5, 35)
+    print(display, 92 - #display * 2 + 2, 37, 0)
     happiness()
-    print(fish.happiness, 15, 15, 0)
+    print(":"..fish.happiness, 23, 15, 0)
+    if (fish.happiness > 0.5) then 
+        spr(124, 15, 13)
+    else
+        spr(198, 15, 13)
+    end
 end
 
 
