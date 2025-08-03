@@ -8,7 +8,6 @@ pl={
   actively_climbing=false,
   w = 8,
   h = 8,
-  prevx = 63
 }
 
 debug_msg = ""
@@ -221,17 +220,17 @@ function update_pl()
   end
 
   -- prize logic
-  local loop_flag = 7
-  if fget(get_tile(pl.x, pl.y), loop_flag) then 
-    -- get character velocity
-    if (pl.x > pl.prevx) then 
-      loop_right()
-    elseif (pl.x < pl.prevx) then 
-      loop_left()
-    end
+  local first_loop_flag = 6
+  local second_loop_flag = 7
+
+  if fget(get_tile(pl.x, pl.y), first_loop_flag) then 
+    passed_first()
+  elseif fget(get_tile(pl.x, pl.y), second_loop_flag) then 
+    passed_second()
+  else 
+    reset_loop_indicator()
   end
 
-  pl.prevx = pl.x
 
 end
 
