@@ -3,7 +3,7 @@ tutorial = {
   finished = false,
   tutorial_messages = {
     "welcome to fish-loop factory! \n(press \151 to continue, or \n\142 to skip)",
-    "your goal is to get $1000 cash. (\151)",
+    "your goal is to get $".. goal_cash .. " cash. (\151)",
     "machines may break! to keep \nyour fish happiness high, \ndon't forget to repair them. \n(\151)",
     "to earn cash, go to the store \n(bottom right) and sell fish. (\151)",
     "if fish aren't happy enough, \ntheir numbers may decrease! (\151)",

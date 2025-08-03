@@ -1,5 +1,6 @@
 cash = 0
 fish_worth = 1
+goal_cash = 200
 
 function start_cash()
     cash = 0

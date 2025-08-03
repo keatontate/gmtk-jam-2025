@@ -72,12 +72,14 @@ function _draw()
     print("to retry, pause and", xoffset+5, yoffset + 11, txt_color)
     print("click reset cart. ", xoffset+5, yoffset + 17, txt_color)
     print("score: " .. cash, xoffset+5, yoffset + 23, txt_color)
+  
   elseif game_complete then 
+    -- draw game complete screen 
     local xoffset = 15
     local yoffset = 15
     local txt_color = 5
     rectfill(15, 15, 113, 113, 8)
-    print("congrats! you got $1000!", xoffset+5, yoffset+5, txt_color)
+    print("congrats! you got $"..goal_cash.."!", xoffset+5, yoffset+5, txt_color)
     print("to retry, pause and", xoffset+5, yoffset + 11, txt_color)
     print("click reset cart. ", xoffset+5, yoffset + 17, txt_color)
     print("score: " .. cash, xoffset+5, yoffset + 23, txt_color)
