@@ -15,10 +15,15 @@ function _update()
   -- play music for situation (music(0) for normal, music(8) for tense)
   -- stop the music in an if loop to allow the other song to play. stat(57) checks if music is playing currently.
   if not stat(57) then
-    if (fish.happiness > 7) then 
-      music(0, 9)
+    if prize_going then 
+      music(-1, 9)
+      music(12, 9)
     else 
-      music(8, 9)
+      if (fish.happiness > 7) then 
+        music(0, 9)
+      else 
+        music(8, 9)
+      end
     end
   end
 

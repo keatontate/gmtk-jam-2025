@@ -28,6 +28,8 @@ function prize_reset()
   mset(9, 1, 170)
   mset(9, 2, 170)
   mset(9, 3, 170)
+
+  sfx(-1, 69)
 end 
 
 function passed_first()
@@ -62,6 +64,9 @@ function reset_loop_indicator()
 end
 
 function spawn_prize()
+
+  -- timer tick
+  sfx(8, 69)
 
   -- temp
   if rnd() > 0.5 then 
@@ -104,9 +109,7 @@ function update_prizes()
   end 
 
   if prize_going and (n_loops == prize_loops) then 
-    -- give cash
-    cash += 20
-    prize_reset()
+    give_prize()
   end 
     
 
@@ -120,6 +123,35 @@ function update_prizes()
       -- todo: different music
     end
   end
+end
+
+
+function give_prize()
+  -- give cash
+  -- note access of cash.lua variables
+  special_fish_count += 1
+  fish_worth = 20
+  prize_reset()
+  -- note access of fish.lua stuff
+  -- (it's 1:59 the night before this is due,
+  -- it's getting unhinged)
+
+  local special_fsh_sprites = {
+    156, 157,
+    172, 173,
+    188, 189
+  }
+
+  local special_sprite = special_fsh_sprites[flr(rnd(#special_fsh_sprites)+1)]
+
+  add(fish_sprites, {
+    sprite = special_sprite,
+    x = 63 - (fish_spread/2) + rnd(fish_spread),
+    y = 63 - (fish_spread/2) + rnd(fish_spread)
+  })
+
+  -- sfx
+  sfx(4)
 end
 
 

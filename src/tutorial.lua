@@ -9,6 +9,7 @@ tutorial = {
     "if fish aren't happy enough, \ntheir numbers may decrease! \n(\151)",
     "oh... and one more thing... \n(\151)",
     "you may get lucky and get the \nopportunity to win a prize \nfish. (\151)",
+    "these special fishes sell for \na lot more cash! (\151)",
     "to win, just run loops \naround the factory. (\151)",
     "you'll get it... (\151)",
     "good luck! \n(press \151 to start game)"

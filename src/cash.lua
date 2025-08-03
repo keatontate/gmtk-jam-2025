@@ -2,6 +2,8 @@ cash = 0
 fish_worth = 1
 goal_cash = 200
 
+special_fish_count = 0
+
 function start_cash()
     cash = 0
 end
@@ -23,6 +25,11 @@ function sell(n)
         sfx(11)
         return
     else
+        while special_fish_count > 0 do 
+            special_fish_count -= 1
+            cash += fish_worth
+        end
+        fish_worth = 1
         fish.count -= n 
         cash += n * fish_worth
         sfx(2)

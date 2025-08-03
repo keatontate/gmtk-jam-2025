@@ -101,7 +101,7 @@ function draw_fish()
         x = 63 - (fish_spread/2) + rnd(fish_spread),
         y = 63 - (fish_spread/2) + rnd(fish_spread)
     })
-    while (#fish_sprites > fish.count) do 
+    while (#fish_sprites > fish.count + special_fish_count) do 
         del(fish_sprites, fish_sprites[#fish_sprites])
     end 
 
