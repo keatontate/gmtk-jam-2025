@@ -2,6 +2,7 @@ function _init()
   fish_start()
   game_over = false
   game_complete = false
+  prize_reset()
 end
 
 function _update()
