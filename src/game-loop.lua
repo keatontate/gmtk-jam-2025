@@ -68,8 +68,8 @@ function _draw()
   draw_pl()
   draw_fish()
   draw_particles()
-  draw_shop()
   draw_prizes()
+  draw_shop()
 
   if not tutorial.finished then
     draw_tutorial()
