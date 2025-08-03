@@ -21,6 +21,7 @@ NOTE: Sound effects should use same channel as flags. for example ladder sfx is 
 - timer ticking - 08 
 - ladder - 09
 - button push - 10
+- error - 11
 
 # Todo
 - Player state: falling, standing, walking, climbing, working

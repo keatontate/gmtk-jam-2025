@@ -1,10 +1,17 @@
 -- shop for selling fish
 -- and possibly buying upgrades
 
+-- note: shop_options need to 
+-- correspond to fish_amounts
 shop_options = {
   "sell 1 fish",
   "sell 5 fish",
   "sell 10 fish"
+}
+fish_amounts = {
+  1,
+  5,
+  10
 }
 
 shop_i = 1
@@ -20,12 +27,20 @@ function toggle_shop()
 end
 
 function update_shop()
+  if (not shop_visible) return
+
   if (btnp(2)) then 
     shop_i -= 1
     if (shop_i < 1) shop_i = 1
   elseif (btnp(3)) then 
     shop_i += 1
     if (shop_i > #shop_options) shop_i = #shop_options
+  end
+
+  -- sell a fish if they click on it
+  if (btnp(5)) then
+    sell(fish_amounts[shop_i])
+    -- note: sfx plays in the sell() function
   end
 end
 

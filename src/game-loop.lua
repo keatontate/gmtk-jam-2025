@@ -20,7 +20,7 @@ function _update()
   update_machines()
   spawn_fish()
   update_particles()
-  autosell()
+  -- autosell()
   update_shop()
 end
 

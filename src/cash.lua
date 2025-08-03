@@ -1,4 +1,5 @@
 cash = 0
+fish_worth = 1
 
 function start_cash()
     cash = 0
@@ -11,7 +12,10 @@ function sell(n)
         last_sell = time()
         if fish.count > 3 then
             fish.count -= n
-            cash += n
+            cash += n * fish_worth
+            sfx(2)
+        else 
+            sfx(11)
         end
     end
 end
