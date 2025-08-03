@@ -5,13 +5,15 @@
 -- correspond to fish_amounts
 shop_options = {
   "sell 1 fish",
-  "sell 5 fish",
-  "sell 10 fish"
+  "sell 10 fish",
+  "sell 100 fish",
+  "sell 1k fish"
 }
 fish_amounts = {
   1,
-  5,
-  10
+  10,
+  100,
+  1000
 }
 
 shop_i = 1

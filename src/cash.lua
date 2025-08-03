@@ -8,15 +8,23 @@ end
 last_sell = -1
 
 function sell(n)
-    if time() - last_sell >= 1 then
-        last_sell = time()
-        if fish.count > 3 then
-            fish.count -= n
-            cash += n * fish_worth
-            sfx(2)
-        else 
-            sfx(11)
-        end
+    -- if time() - last_sell >= 1 then
+    --     last_sell = time()
+    --     if fish.count > 3 then
+    --         fish.count -= n
+    --         cash += n * fish_worth
+    --         sfx(2)
+    --     else 
+    --         sfx(11)
+    --     end
+    -- end
+    if n + 2 > fish.count then 
+        sfx(11)
+        return
+    else
+        fish.count -= n 
+        cash += n * fish_worth
+        sfx(2)
     end
 end
 
