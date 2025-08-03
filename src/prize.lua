@@ -10,8 +10,8 @@ function prize_reset()
   prize_loops = 0
 
   prize_indx = 0
-  prize_delay = 200
-  prize_prob = 0.1
+  prize_delay = 50
+  prize_prob = 1
   prize_going = false
 
   first_passes = 0
@@ -70,9 +70,9 @@ function spawn_prize()
 
   -- temp
   if rnd() > 0.5 then 
-    n_loops = 2
+    n_loops = 1
   else 
-    n_loops = 3
+    n_loops = 2
   end
 
   time_left = n_loops * 6

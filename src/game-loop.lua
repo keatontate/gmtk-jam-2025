@@ -5,6 +5,8 @@ function _init()
   prize_reset()
 end
 
+last_track = -1
+
 function _update()
 
   -- if game_over then 
@@ -14,17 +16,22 @@ function _update()
 
   -- play music for situation (music(0) for normal, music(8) for tense)
   -- stop the music in an if loop to allow the other song to play. stat(57) checks if music is playing currently.
-  if not stat(57) then
-    if prize_going then 
-      music(-1, 9)
-      music(4, 9)
-    else 
-      if (fish.happiness > 7) then 
-        music(0, 9)
-      else 
-        music(8, 9)
-      end
-    end
+  
+  -- Determine which track to play
+  local desired_track
+
+  if prize_going then
+    desired_track = 4
+  elseif fish.happiness < 7 then
+    desired_track = 8
+  else
+    desired_track = 0
+  end
+
+  -- only start music if nothing is playing OR track has changed
+  if not stat(57) or desired_track != last_track then
+    music(desired_track, 9)
+    last_track = desired_track
   end
 
   -- tutorial goes instead of main loop
