@@ -48,13 +48,24 @@ end
 function spawn_prize()
 
   -- set a prize indicator thing
-  mset(8, 1, 163)
-  mset(8, 2, 163)
-  mset(8, 3, 163)
+  if rnd() > 0.5 then 
+    mset(8, 1, 163)
+    mset(8, 2, 163)
+    mset(8, 3, 163)
 
-  mset(9, 1, 164)
-  mset(9, 2, 164)
-  mset(9, 3, 164)
+    mset(9, 1, 164)
+    mset(9, 2, 164)
+    mset(9, 3, 164)
+
+  else 
+    mset(8, 1, 166)
+    mset(8, 2, 166)
+    mset(8, 3, 166)
+
+    mset(9, 1, 165)
+    mset(9, 2, 165)
+    mset(9, 3, 165)
+  end
 
 end
 
@@ -78,6 +89,5 @@ function draw_prizes()
   if prize_going then 
     print("prize!!!", 55, 2, prize_color)
     print("loops:" .. prize_loops, 55, 8, prize_color)
-    print("first: " .. first_passes .. " second: " .. second_passes, 55, 14, prize_color)
   end
 end
