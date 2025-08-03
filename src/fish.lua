@@ -29,6 +29,10 @@ function spawn_fish()
             fish.thousand += flr(fish.count / 1000)
             fish.count = fish.count % 1000
         end
+    elseif time() - last_spawn_time >= rate and fish.happiness < 5 then 
+        -- start to decrease fish
+        fish.count /= exponential
+        last_spawn_time = time()
     end
 end
 
@@ -37,7 +41,7 @@ function happiness()
     if broke == 0 and fish.happiness < fish.happy_max then
         fish.happiness += 0.01
     else
-        fish.happiness = fish.happiness - broke * 0.001
+        fish.happiness = fish.happiness - broke * 0.005
     end
 
 end
