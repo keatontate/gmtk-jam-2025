@@ -43,7 +43,7 @@ machines = {
 }
 
 
-i = 0
+machine_indx= 0
 time_delay = 100
 
 function contains(t, val)
@@ -79,9 +79,9 @@ end
 
 
 function update_machines()
-  i += 1
-  if (i / time_delay) == 1 then
-    i = 0
+  machine_indx+= 1
+  if (machine_indx/ time_delay) == 1 then
+    machine_indx= 0
 
     -- todo: if it's already broken,
     -- instead of breaking it again,

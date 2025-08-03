@@ -18,7 +18,7 @@ function draw_map()
   map()
   -- draw tank
   circfill(63,64,31,0)
-  circfill(63,64,26,2)
+  circfill(63,64,26,5)
   -- draw supports
   spr(64,56,96,4,2)
 
