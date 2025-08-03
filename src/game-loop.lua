@@ -1,8 +1,16 @@
 function _init()
   fish_start()
+  game_over = false
 end
 
 function _update()
+
+  -- if game_over then 
+  --   return 
+  -- end 
+  print(fish.count, 0, 0, 14)
+
+
   -- tutorial goes instead of main loop
   if not tutorial.finished then
     update_tutorial()
@@ -16,6 +24,11 @@ function _update()
   --  music(8)
   -- end
 
+  -- game over stuff
+  if (fish.count < 2) then 
+    game_over = true
+  end
+
   update_pl()
   update_machines()
   spawn_fish()
@@ -25,6 +38,9 @@ function _update()
 end
 
 function _draw()
+
+  
+
   cls()
   draw_map()
   draw_count()
@@ -37,6 +53,16 @@ function _draw()
   if not tutorial.finished then
     draw_tutorial()
   end
-  -- temp floor
-  --  map(0, 12, 0, 91, 16, 1)
+  
+
+  if game_over then 
+    -- draw game over screen
+    local xoffset = 15
+    local yoffset = 15
+    rectfill(15, 15, 113, 113, 8)
+    print("game over, out of fish!", xoffset+5, yoffset+5, 14)
+    print("to retry, pause and", xoffset+5, yoffset + 11, 14)
+    print("click reset cart. ", xoffset+5, yoffset + 17, 14)
+    print("score: " .. cash, xoffset+5, yoffset + 23, 14)
+  end 
 end

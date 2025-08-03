@@ -39,3 +39,4 @@ pl.y = flr((new_y + pl.h) / 8) * 8 - 16
 - [X] Player can sometimes glitch into floor when falling large distance on right side of map, maybe use `_update60()` for collision checking?
         Added a max velocity to prevent it -Jame
 - [ ] Sfx all need separate channels, they are interrupting eachother
+- [ ] Sell function isn't quite right. It allows you to sell more than you have
