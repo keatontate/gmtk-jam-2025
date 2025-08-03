@@ -56,3 +56,13 @@ export index.html
 ```
 folder
 ```
+
+# Ideas:
+- fire if machine leaves untouched for too long,
+- flood if fish get too much
+- Upgrades:
+  - machines break less, but when they do they instantly cause a fire
+  - fish spawn a lot faster for a brief period
+
+- buy fish
+  - one fish makes machines break way more but the fish cost more 
