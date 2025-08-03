@@ -41,7 +41,7 @@ function happiness()
     if broke == 0 and fish.happiness < fish.happy_max then
         fish.happiness += 0.01
     else
-        fish.happiness = fish.happiness - broke * 0.005
+        fish.happiness = fish.happiness - broke * 0.001
     end
 
 end

@@ -66,6 +66,9 @@ function draw_shop()
     print(shop_options[i], xoffset + 5, yoffset + 6 * i, color)
   end
 
+  -- draw powerup opts
+  print("----------------", xoffset + 3, 50, 0)
+
   -- hints
   print("\151 to select", xoffset + 5, 128 - yoffset - 16, 0)
   print("\142 to exit", xoffset + 5, 128 - yoffset - 10, 0)
