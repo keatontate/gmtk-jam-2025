@@ -116,18 +116,18 @@ function update_pl()
       -- note: uses channel 1 (same as flag)
       if not pl.actively_climbing then 
         pl.actively_climbing = true
-        sfx(9,1)
+        -- sfx(9,1)
       end 
     elseif btn(3) and can_move_down then
       pl.y += pl.spd / 2
       if not pl.actively_climbing then 
         pl.actively_climbing = true
-        sfx(9,1)
+        -- sfx(9,1)
       end 
     else
       if pl.actively_climbing then 
         pl.actively_climbing = false
-        sfx(-1,1)
+        -- sfx(-1,1)
       end 
     end
     

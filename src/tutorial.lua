@@ -16,7 +16,7 @@ function update_tutorial()
   end
 
   if btnp(5) then tutorial.i += 1 end
-  if btnp(4) then tutorial.i = #tutorial.tutorial_messages end
+  if btnp(4) then tutorial.i = #tutorial.tutorial_messages + 1 end
 
 end
 
