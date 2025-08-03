@@ -1,6 +1,6 @@
 pl={
   x=63,
-  y=83,
+  y=20,
   spd=1.5,
   velo = 0,
   grounded = false,

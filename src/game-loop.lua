@@ -16,9 +16,9 @@ function _update()
   -- stop the music in an if loop to allow the other song to play. stat(57) checks if music is playing currently.
   if not stat(57) then
     if (fish.happiness > 7) then 
-      -- music(0, 9)
+      music(0, 9)
     else 
-      -- music(8, 9)
+      music(8, 9)
     end
   end
 
@@ -54,10 +54,10 @@ function _draw()
   draw_cash()
   draw_machines()
   draw_pl()
+  draw_fish()
   draw_particles()
   draw_shop()
   draw_prizes()
-  draw_fish()
 
   if not tutorial.finished then
     draw_tutorial()

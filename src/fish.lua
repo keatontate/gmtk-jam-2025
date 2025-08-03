@@ -12,18 +12,20 @@ tank = {
 exponential = 1.05
 rate = 1
 
+fish_spread = 30
+
 
 -- note: start with 2
 fish_sprites = {
     {
-        sprite = 153,
-        x = 53 + rnd(20),
-        y = 53 + rnd(20)
+        sprite = 186,
+        x = 63 - (fish_spread/2) + rnd(fish_spread),
+        y = 63 - (fish_spread/2) + rnd(fish_spread)
     },
     {
         sprite = 153,
-        x = 53 + rnd(20),
-        y = 53 + rnd(20)
+        x = 63 - (fish_spread/2) + rnd(fish_spread),
+        y = 63 - (fish_spread/2) + rnd(fish_spread)
     }
 }
 
@@ -89,10 +91,15 @@ end
 
 function draw_fish()
     -- ensure fish match how many they say
+
+    -- get a left or right facing one
+    local fsh_sprite = 186
+    if (rnd() > 0.5) fsh_sprite = 153
+
     add(fish_sprites, {
-        sprite = 153,
-        x = 53 + rnd(20),
-        y = 53 + rnd(20)
+        sprite = fsh_sprite,
+        x = 63 - (fish_spread/2) + rnd(fish_spread),
+        y = 63 - (fish_spread/2) + rnd(fish_spread)
     })
     while (#fish_sprites > fish.count) do 
         del(fish_sprites, fish_sprites[#fish_sprites])
