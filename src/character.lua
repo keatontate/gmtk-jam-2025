@@ -189,8 +189,12 @@ function update_pl()
   or is_shop(playerx2, playery) then
 
     -- helper message
-    player_msg = "\142"
-    
+    if (shop_visible) then 
+      player_msg = ""
+    else
+      player_msg = "\142"
+    end
+
     if (btnp(4)) then 
       toggle_shop()
       sfx(10)

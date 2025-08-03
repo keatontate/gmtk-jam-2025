@@ -7,6 +7,8 @@ shop_options = {
   "sell 10 fish"
 }
 
+shop_i = 1
+
 shop_visible = false
 
 function toggle_shop()
@@ -18,7 +20,13 @@ function toggle_shop()
 end
 
 function update_shop()
-  
+  if (btnp(2)) then 
+    shop_i -= 1
+    if (shop_i < 1) shop_i = 1
+  elseif (btnp(3)) then 
+    shop_i += 1
+    if (shop_i > #shop_options) shop_i = #shop_options
+  end
 end
 
 
@@ -34,6 +42,14 @@ function draw_shop()
 
   -- draw shop opts
   for i=1, #shop_options do 
-    print(shop_options[i], xoffset + 5, yoffset + 6 * i)
+    local color = 0
+    if (i == shop_i) then 
+      color = 9
+    end
+    print(shop_options[i], xoffset + 5, yoffset + 6 * i, color)
   end
+
+  -- hints
+  print("\151 to select", xoffset + 5, 128 - yoffset - 16, 0)
+  print("\142 to exit", xoffset + 5, 128 - yoffset - 10, 0)
 end
