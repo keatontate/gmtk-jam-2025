@@ -7,7 +7,8 @@ pl={
   flip_x = false,
   actively_climbing=false,
   w = 8,
-  h = 8
+  h = 8,
+  prevx = 63
 }
 
 debug_msg = ""
@@ -214,10 +215,23 @@ function update_pl()
   if (pl.y > 128) pl.y = 83
 
 
-  -- temp sell
+  -- temp sell (i'll leave it for fun)
   if (btn(4) and btn(5)) then
     sell(1)
   end
+
+  -- prize logic
+  local loop_flag = 7
+  if fget(get_tile(pl.x, pl.y), loop_flag) then 
+    -- get character velocity
+    if (pl.x > pl.prevx) then 
+      loop_right()
+    elseif (pl.x < pl.prevx) then 
+      loop_left()
+    end
+  end
+
+  pl.prevx = pl.x
 
 end
 

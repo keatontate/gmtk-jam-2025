@@ -5,8 +5,7 @@
 - `1`: Ladder. Basically gravity and jumps turn off, they have freedom to move up or down
 - `2`: Interactive object (upgrade tower)
 - `3`: Shop
-- `7`: loop right
-- `6`: loop left
+- `7`: loop
 
 ## sfx:
 NOTE: Sound effects should use same channel as flags. for example ladder sfx is played on channel 1. 

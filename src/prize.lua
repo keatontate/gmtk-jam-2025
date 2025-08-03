@@ -11,9 +11,18 @@ prize_delay = 50
 prize_prob = 1
 prize_going = false
 
+function loop_left()
+  prize_loops -= 1/5
+end
+
+function loop_right()
+  prize_loops += 1/5
+end
+
 function spawn_prize()
 
   -- set a prize indicator thing
+  mset(8, 1, 163)
   mset(8, 2, 163)
   mset(8, 3, 163)
 
@@ -35,8 +44,9 @@ end
 
 
 function draw_prizes()
+  local prize_color = 13
   if prize_going then 
-    print("prize!!!", 55, 5)
-    print("loops:" .. prize_loops, 55, 11)
+    print("prize!!!", 55, 2, prize_color)
+    print("loops:" .. prize_loops, 55, 8, prize_color)
   end
 end
