@@ -43,12 +43,10 @@ function _update()
   update_particles()
   -- autosell()
   update_shop()
+  update_prizes()
 end
 
 function _draw()
-
-  
-
   cls()
   draw_map()
   draw_count()
@@ -57,6 +55,7 @@ function _draw()
   draw_pl()
   draw_particles()
   draw_shop()
+  draw_prizes()
 
   if not tutorial.finished then
     draw_tutorial()
