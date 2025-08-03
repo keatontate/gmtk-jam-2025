@@ -125,9 +125,11 @@ end
 
 
 function draw_prizes()
-  local prize_color = 13
+  local prize_color = 6
+  local xoffset = 45
+  local yoffset = 45
   if prize_going then 
-    print("!loop ".. n_loops .. " times for a new fish!", 10, 2, prize_color)
-    print("loops:" .. prize_loops.. " time: ".. time_left, 20, 8, prize_color)
+    print("loop ".. n_loops .. " \ntimes for \na prize!", xoffset, yoffset, prize_color)
+    print("loops:" .. prize_loops.. " \ntime: ".. time_left, xoffset, yoffset + 18, prize_color)
   end
 end
