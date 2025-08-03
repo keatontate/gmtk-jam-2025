@@ -12,7 +12,7 @@ tank = {
 exponential = 1.05
 rate = 1
 
-fish_spread = 30
+fish_spread = 45
 
 
 -- note: start with 2
@@ -60,6 +60,14 @@ end
 
 function happiness()
     broke = broke_count()
+
+    -- note: this decreases happiness
+    -- based on overcrowding
+    local overcrowding_limit = 80
+    if (fish.count > overcrowding_limit) then 
+        broke += fish.count / overcrowding_limit 
+    end
+
     if broke == 0 and fish.happiness < fish.happy_max then
         fish.happiness += 0.01
     else

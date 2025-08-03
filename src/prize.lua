@@ -70,9 +70,9 @@ function spawn_prize()
 
   -- temp
   if rnd() > 0.5 then 
-    n_loops = 1
-  else 
     n_loops = 2
+  else 
+    n_loops = 3
   end
 
   time_left = n_loops * 6

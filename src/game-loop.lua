@@ -46,7 +46,7 @@ function _update()
   if (fish.count < 2) then 
     game_over = true
   end
-  if (cash >= 1000) then 
+  if (cash >= goal_cash) then 
     game_complete = true 
   end 
 
