@@ -17,7 +17,7 @@ function _update()
   if not stat(57) then
     if prize_going then 
       music(-1, 9)
-      music(12, 9)
+      music(4, 9)
     else 
       if (fish.happiness > 7) then 
         music(0, 9)
