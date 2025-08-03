@@ -1,6 +1,7 @@
 function _init()
   fish_start()
   game_over = false
+  game_complete = false
 end
 
 function _update()
@@ -10,13 +11,6 @@ function _update()
   -- end 
   print(fish.count, 0, 0, 14)
 
-
-  -- tutorial goes instead of main loop
-  if not tutorial.finished then
-    update_tutorial()
-    update_pl()
-    return
-  end
   -- play music for situation (music(0) for normal, music(8) for tense)
   -- stop the music in an if loop to allow the other song to play. stat(57) checks if music is playing currently.
   if not stat(57) then
@@ -27,10 +21,21 @@ function _update()
     end
   end
 
+  -- tutorial goes instead of main loop
+  if not tutorial.finished then
+    update_tutorial()
+    update_pl()
+    return
+  end
+  
+
   -- game over stuff
   if (fish.count < 2) then 
     game_over = true
   end
+  if (cash >= 1000) then 
+    game_complete = true 
+  end 
 
   update_pl()
   update_machines()
@@ -62,10 +67,20 @@ function _draw()
     -- draw game over screen
     local xoffset = 15
     local yoffset = 15
+    local txt_color = 14
     rectfill(15, 15, 113, 113, 8)
-    print("game over, out of fish!", xoffset+5, yoffset+5, 14)
-    print("to retry, pause and", xoffset+5, yoffset + 11, 14)
-    print("click reset cart. ", xoffset+5, yoffset + 17, 14)
-    print("score: " .. cash, xoffset+5, yoffset + 23, 14)
+    print("game over, out of fish!", xoffset+5, yoffset+5, txt_color)
+    print("to retry, pause and", xoffset+5, yoffset + 11, txt_color)
+    print("click reset cart. ", xoffset+5, yoffset + 17, txt_color)
+    print("score: " .. cash, xoffset+5, yoffset + 23, txt_color)
+  elseif game_complete then 
+    local xoffset = 15
+    local yoffset = 15
+    local txt_color = 5
+    rectfill(15, 15, 113, 113, 8)
+    print("congrats! you got $1000!", xoffset+5, yoffset+5, txt_color)
+    print("to retry, pause and", xoffset+5, yoffset + 11, txt_color)
+    print("click reset cart. ", xoffset+5, yoffset + 17, txt_color)
+    print("score: " .. cash, xoffset+5, yoffset + 23, txt_color)
   end 
 end
