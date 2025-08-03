@@ -10,8 +10,8 @@ function prize_reset()
   prize_loops = 0
 
   prize_indx = 0
-  prize_delay = 50
-  prize_prob = 1
+  prize_delay = 200
+  prize_prob = 0.1
   prize_going = false
 
   first_passes = 0
@@ -22,12 +22,12 @@ function prize_reset()
   time_left = 0
   dt = 0.02
 
-  mset(8, 1, 153)
-  mset(8, 2, 153)
-  mset(8, 3, 153)
-  mset(9, 1, 153)
-  mset(9, 2, 153)
-  mset(9, 3, 153)
+  mset(8, 1, 170)
+  mset(8, 2, 170)
+  mset(8, 3, 170)
+  mset(9, 1, 170)
+  mset(9, 2, 170)
+  mset(9, 3, 170)
 end 
 
 function passed_first()

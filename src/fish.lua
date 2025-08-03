@@ -13,6 +13,21 @@ exponential = 1.05
 rate = 1
 
 
+-- note: start with 2
+fish_sprites = {
+    {
+        sprite = 153,
+        x = 53 + rnd(20),
+        y = 53 + rnd(20)
+    },
+    {
+        sprite = 153,
+        x = 53 + rnd(20),
+        y = 53 + rnd(20)
+    }
+}
+
+
 function fish_start()
     fish.count = 2
     fish.happiness = 10
@@ -29,11 +44,16 @@ function spawn_fish()
             fish.thousand += flr(fish.count / 1000)
             fish.count = fish.count % 1000
         end
+
+        
+
     elseif time() - last_spawn_time >= rate and fish.happiness < 5 then 
         -- start to decrease fish
         fish.count /= exponential
         last_spawn_time = time()
     end
+
+    
 end
 
 function happiness()
@@ -64,4 +84,25 @@ function draw_count()
     print(display, 92 - #display * 2, 37, 0)
     happiness()
     print(fish.happiness, 15, 15, 0)
+end
+
+
+function draw_fish()
+    -- ensure fish match how many they say
+    add(fish_sprites, {
+        sprite = 153,
+        x = 53 + rnd(20),
+        y = 53 + rnd(20)
+    })
+    while (#fish_sprites > fish.count) do 
+        del(fish_sprites, fish_sprites[#fish_sprites])
+    end 
+
+    for i=1, #fish_sprites do 
+        local fsh = fish_sprites[i]
+        spr(fsh.sprite, fsh.x, fsh.y)
+        if (rnd() > 0.9) then 
+            fsh.x += -0.5 + rnd()
+        end
+    end
 end
